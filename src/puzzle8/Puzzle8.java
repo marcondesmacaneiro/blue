@@ -14,8 +14,8 @@ public class Puzzle8 {
         Tabuleiro tab = new Tabuleiro();
 
         Tabuleiro inicio = new Tabuleiro(1, 2, 3, 4, 0, 6, 7, 8, 5);
-
         Tabuleiro fim = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
+        Tabuleiro resultado = new Tabuleiro();
 
         abertos.add(inicio);
 
@@ -29,7 +29,6 @@ public class Puzzle8 {
             ListaTabuleiros filhos = abertos.get(0).getFilhos();
 
             processados.add((Tabuleiro)abertos.get(0));
-            abertos.remove(0);
             
             if(processados.contains(inicio)){
                     
@@ -44,13 +43,19 @@ public class Puzzle8 {
                 }
                 if(fim.equals(filho)){
                     achou = true;
-                    System.out.println("Deu boa");
+                    System.out.println("Fim encontrado");
                     System.out.println(fim.toString());
                     System.out.println(tab.imprime(count));
+                    fim.setPai(abertos.get(0));
+                    resultado = fim;
+                    while(resultado.getPai() != null){
+                        System.out.println("Pai: \n" +resultado.getPai().toString());
+                        resultado = resultado.getPai();
+                    }
                     break;
                 }
             }
-            
+            abertos.remove(0);
         } while (!achou);
 
     }
