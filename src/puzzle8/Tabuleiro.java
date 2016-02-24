@@ -36,7 +36,7 @@ public class Tabuleiro {
     public Tabuleiro() {}
 
     public Tabuleiro calculaEuristica(Tabuleiro tabuleiro) {
-        h1 = calcH1();
+        //h1 = calcH1();
         h2 = calcH2(tabuleiro);
 
         return this;
@@ -251,7 +251,8 @@ public class Tabuleiro {
         return novo;
     }
     
-     protected int calcH1(Tabuleiro tabAtual, Tabuleiro tabFinal){
+    //TODO: Verificar
+     private int calcH1(Tabuleiro tabAtual, Tabuleiro tabFinal){
         
         int cont = 0;
         
@@ -277,7 +278,7 @@ public class Tabuleiro {
         return cont;
     }
     
-
+     //TODO: Remover
     public String imprime(int qtd){
         
         String msg = "Total de Verificacoes " + qtd;
@@ -335,10 +336,6 @@ public class Tabuleiro {
         tabuleiro += String.format("| %s | %s | %s | \n", l2c1, l2c2, l2c3);
         tabuleiro += String.format("| %s | %s | %s | \n", l3c1, l3c2, l3c3);
         return tabuleiro;
-    }
-
-    private int calcH1() {
-        return 1;
     }
 
     private int calcH2(Tabuleiro tabuleiro) {
