@@ -250,7 +250,42 @@ public class Tabuleiro {
 
         return novo;
     }
+    
+     protected int calcH1(Tabuleiro tabAtual, Tabuleiro tabFinal){
+        
+        int cont = 0;
+        
+        if(tabAtual.l1c1 != tabFinal.l1c1)
+            cont ++;
+        if(tabAtual.l1c2 != tabFinal.l1c2)
+            cont ++;
+        if(tabAtual.l1c3 != tabFinal.l1c3)
+            cont ++;
+        if(tabAtual.l2c1 != tabFinal.l2c1)
+            cont ++;
+        if(tabAtual.l2c2 != tabFinal.l2c2)
+            cont ++;
+        if(tabAtual.l2c3 != tabFinal.l2c3)
+            cont ++;
+        if(tabAtual.l3c1 != tabFinal.l3c1)
+            cont ++;
+        if(tabAtual.l3c2 != tabFinal.l3c2)
+            cont ++;
+        if(tabAtual.l3c3 != tabFinal.l3c3)
+            cont ++;    
+        
+        return cont;
+    }
+    
 
+    public String imprime(int qtd){
+        
+        String msg = "Total de Verificacoes " + qtd;
+        
+        return msg;
+    }
+    
+    
     /**
      * Compare two Objects type of Tabuleiro
      *

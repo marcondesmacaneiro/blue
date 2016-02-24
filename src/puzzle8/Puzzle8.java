@@ -11,6 +11,7 @@ public class Puzzle8 {
         ListaTabuleiros abertos = new ListaTabuleiros();
         boolean achou = false;
         int count = 0;
+        Tabuleiro tab = new Tabuleiro();
 
         Tabuleiro inicio = new Tabuleiro(1, 2, 3, 4, 0, 6, 7, 8, 5);
 
@@ -19,8 +20,11 @@ public class Puzzle8 {
         abertos.add(inicio);
 
         do {
-            if(inicio.equals(fim))
+            if(inicio.equals(fim)){
+                System.out.println(tab.imprime(0));
                 break;
+            }
+                
             
             ListaTabuleiros filhos = abertos.get(0).getFilhos();
 
@@ -42,7 +46,7 @@ public class Puzzle8 {
                     achou = true;
                     System.out.println("Deu boa");
                     System.out.println(fim.toString());
-                    System.out.println(String.format("Total verificações: %s ", count));
+                    System.out.println(tab.imprime(count));
                     break;
                 }
             }
