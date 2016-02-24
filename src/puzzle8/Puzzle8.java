@@ -13,7 +13,7 @@ public class Puzzle8 {
         int count = 0;
         Tabuleiro tab = new Tabuleiro();
 
-        Tabuleiro inicio = new Tabuleiro(1, 2, 3, 4, 0, 6, 7, 8, 5);
+        Tabuleiro inicio = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
         Tabuleiro fim = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
         Tabuleiro resultado = new Tabuleiro();
 
@@ -21,13 +21,12 @@ public class Puzzle8 {
 
         do {
             if(inicio.equals(fim)){
-                System.out.println(tab.imprime(0));
+                System.out.println("Final igual ao inicio \n" + inicio.toString());
+                System.out.println(tab.imprime(count));
                 break;
             }
-                
-            
+                      
             ListaTabuleiros filhos = abertos.get(0).getFilhos();
-
             processados.add((Tabuleiro)abertos.get(0));
             
             if(processados.contains(inicio)){
