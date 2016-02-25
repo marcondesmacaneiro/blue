@@ -13,7 +13,7 @@ public class Puzzle8 {
         int count = 0;
         Tabuleiro tab = new Tabuleiro();
 
-        Tabuleiro inicio = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
+        Tabuleiro inicio = new Tabuleiro(1, 0, 3, 4, 5, 2, 7, 8, 6);
         Tabuleiro fim = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
         Tabuleiro resultado = new Tabuleiro();
 
