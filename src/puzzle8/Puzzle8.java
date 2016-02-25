@@ -12,7 +12,6 @@ public class Puzzle8 {
         boolean achou = false;
         int count = 0;
         int qtdMovimentos = 0;
-        Tabuleiro tab = new Tabuleiro();
 
         Tabuleiro inicio = new Tabuleiro(1, 0, 3, 4, 5, 2, 7, 8, 6);
         Tabuleiro fim = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
@@ -23,7 +22,7 @@ public class Puzzle8 {
         do {
             if(inicio.equals(fim)){
                 System.out.println("Final igual ao inicio \n" + inicio.toString());
-                System.out.println(tab.imprime(count));
+                System.out.println(String.format("Total de Verificacoes: %s", count));
                 break;
             }
                       
@@ -45,7 +44,7 @@ public class Puzzle8 {
                     achou = true;
                     System.out.println("Fim encontrado");
                     System.out.println(fim.toString());
-                    System.out.println(tab.imprime(count));
+                    System.out.println(String.format("Total de Verificacoes: %s", count));
                     fim.setPai(abertos.get(0));
                     resultado = fim;
                     while(resultado.getPai() != null){

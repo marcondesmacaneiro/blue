@@ -35,11 +35,13 @@ public class Tabuleiro {
 
     public Tabuleiro() {}
 
-    public Tabuleiro calculaEuristica(Tabuleiro tabuleiro) {
-        h1 = calcH1(tabuleiro);
-        h2 = calcH2(tabuleiro);
-
-        return this;
+    /**
+     * Método para calcular a euristica
+     * @param tabuleiro Tabuleiro
+     * @return Valor da euristica
+     */
+    public int calculaEuristica(Tabuleiro tabuleiro) {
+        return calcH1(tabuleiro) + calcH2(tabuleiro);
     }
 
     public ListaTabuleiros getFilhos() {
@@ -276,15 +278,6 @@ public class Tabuleiro {
 
         return cont;
     }
-
-     //TODO: Remover
-    public String imprime(int qtd){
-
-        String msg = "Total de Verificacoes " + qtd;
-        
-        return msg;
-    }
-    
     
     /**
      * Compare two Objects type of Tabuleiro
