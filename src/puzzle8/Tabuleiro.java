@@ -1,7 +1,7 @@
 package puzzle8;
 
 /**
- *
+ * Classe com as informações do tabuleiro do jogo
  * @author Derlei
  */
 public class Tabuleiro {
@@ -36,7 +36,7 @@ public class Tabuleiro {
     public Tabuleiro() {}
 
     public Tabuleiro calculaEuristica(Tabuleiro tabuleiro) {
-        //h1 = calcH1();
+        h1 = calcH1(tabuleiro);
         h2 = calcH2(tabuleiro);
 
         return this;
@@ -250,37 +250,36 @@ public class Tabuleiro {
 
         return novo;
     }
-    
-    //TODO: Verificar
-     private int calcH1(Tabuleiro tabAtual, Tabuleiro tabFinal){
+
+     private int calcH1(Tabuleiro t){
         
         int cont = 0;
         
-        if(tabAtual.l1c1 != tabFinal.l1c1)
+        if(t.l1c1 != l1c1)
             cont ++;
-        if(tabAtual.l1c2 != tabFinal.l1c2)
+        if(t.l1c2 != l1c2)
             cont ++;
-        if(tabAtual.l1c3 != tabFinal.l1c3)
+        if(t.l1c3 != l1c3)
             cont ++;
-        if(tabAtual.l2c1 != tabFinal.l2c1)
+        if(t.l2c1 != l2c1)
             cont ++;
-        if(tabAtual.l2c2 != tabFinal.l2c2)
+        if(t.l2c2 != l2c2)
             cont ++;
-        if(tabAtual.l2c3 != tabFinal.l2c3)
+        if(t.l2c3 != l2c3)
             cont ++;
-        if(tabAtual.l3c1 != tabFinal.l3c1)
+        if(t.l3c1 != l3c1)
             cont ++;
-        if(tabAtual.l3c2 != tabFinal.l3c2)
+        if(t.l3c2 != l3c2)
             cont ++;
-        if(tabAtual.l3c3 != tabFinal.l3c3)
+        if(t.l3c3 != l3c3)
             cont ++;    
-        
+
         return cont;
     }
-    
+
      //TODO: Remover
     public String imprime(int qtd){
-        
+
         String msg = "Total de Verificacoes " + qtd;
         
         return msg;
