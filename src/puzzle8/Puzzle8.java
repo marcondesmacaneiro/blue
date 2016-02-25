@@ -11,6 +11,7 @@ public class Puzzle8 {
         ListaTabuleiros abertos = new ListaTabuleiros();
         boolean achou = false;
         int count = 0;
+        int qtdMovimentos = 0;
         Tabuleiro tab = new Tabuleiro();
 
         Tabuleiro inicio = new Tabuleiro(1, 0, 3, 4, 5, 2, 7, 8, 6);
@@ -48,11 +49,13 @@ public class Puzzle8 {
                     fim.setPai(abertos.get(0));
                     resultado = fim;
                     while(resultado.getPai() != null){
+                        qtdMovimentos ++;
                         System.out.println("Pai: \n" +resultado.getPai().toString());
                         resultado = resultado.getPai();
                     }
-                    break;
+                    System.out.println("Movimentos: " + qtdMovimentos);
                 }
+                
             }
             abertos.remove(0);
         } while (!achou);
