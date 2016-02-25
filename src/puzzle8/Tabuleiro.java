@@ -252,7 +252,7 @@ public class Tabuleiro {
     }
 
      private int calcH1(Tabuleiro t){
-        
+       
         int cont = 0;
         
         if(t.l1c1 != l1c1)
