@@ -13,7 +13,7 @@ public class Puzzle8 {
         int count = 0;
         int qtdMovimentos = 0;
 
-        Tabuleiro inicio = new Tabuleiro(1, 0, 3, 4, 5, 2, 7, 8, 6);
+        Tabuleiro inicio = new Tabuleiro(2, 0, 1, 8, 4, 6, 5, 3, 7);
         Tabuleiro fim = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
         Tabuleiro resultado = new Tabuleiro();
 
@@ -28,11 +28,6 @@ public class Puzzle8 {
                       
             ListaTabuleiros filhos = abertos.get(0).getFilhos();
             processados.add((Tabuleiro)abertos.get(0));
-            
-            if(processados.contains(inicio)){
-                    
-                    System.out.println(inicio.toString());
-                }
             
             for (Tabuleiro filho : filhos) {
                 if(!processados.contains(filho)){

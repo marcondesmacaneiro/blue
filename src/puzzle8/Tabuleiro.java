@@ -141,8 +141,8 @@ public class Tabuleiro {
             filho3.setPai(this);
 
             Tabuleiro filho4 = clone();
-            filho4.setL3c3(l2c2);
-            filho4.setL2c2(l3c3);
+            filho4.setL3c2(l2c2);
+            filho4.setL2c2(l3c2);
             filho4.setPai(this);
 
             filhos.add(filho1);
