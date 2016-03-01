@@ -4,7 +4,7 @@ package puzzle8;
  * Classe com as informações do tabuleiro do jogo
  * @author Derlei
  */
-public class Tabuleiro {
+public class Tabuleiro implements Comparable<Tabuleiro>{
 
     private int l1c1;
     private int l1c2;
@@ -16,8 +16,7 @@ public class Tabuleiro {
     private int l3c2;
     private int l3c3;
 
-    private int h1;
-    private int h2;
+    private Integer euristica;
 
     private Tabuleiro pai = null;
 
@@ -40,8 +39,8 @@ public class Tabuleiro {
      * @param tabuleiro Tabuleiro
      * @return Valor da euristica
      */
-    public int calculaEuristica(Tabuleiro tabuleiro) {
-        return calcH1(tabuleiro) + calcH2(tabuleiro);
+    public void calculaEuristica(Tabuleiro tabuleiro) {
+        euristica = calcH1(tabuleiro) + calcH2(tabuleiro);
     }
 
     public ListaTabuleiros getFilhos() {
@@ -540,4 +539,18 @@ public class Tabuleiro {
     public void setPai(Tabuleiro pai) {
         this.pai = pai;
     }
+
+    public Integer getEuristica() {
+        return euristica;
+    }
+
+    public void setEuristica(int euristica) {
+        this.euristica = euristica;
+    }
+
+    @Override
+    public int compareTo(Tabuleiro o) {
+        return this.euristica.compareTo(o.euristica);
+    }
+    
 }

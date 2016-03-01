@@ -1,5 +1,9 @@
 package puzzle8;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  *
  * @author Derlei
@@ -32,6 +36,7 @@ public class Puzzle8 {
 
             for (Tabuleiro filho : filhos) {
                 if (!processados.contains(filho)) {
+                    
                     abertos.add(filho);
                     System.out.println(filho.toString());
                     count++;
@@ -55,6 +60,9 @@ public class Puzzle8 {
 
             }
             abertos.remove(0);
+            //TODO:
+            //Verificar...
+            //Arrays.sort(abertos);
         } while (!achou);
 
     }
