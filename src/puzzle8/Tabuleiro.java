@@ -16,7 +16,7 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
     private int l3c2;
     private int l3c3;
 
-    private Integer euristica;
+    private int euristica;
 
     private Tabuleiro pai = null;
 
@@ -540,17 +540,24 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
         this.pai = pai;
     }
 
-    public Integer getEuristica() {
+    public int getEuristica() {
         return euristica;
     }
 
     public void setEuristica(int euristica) {
         this.euristica = euristica;
     }
-
+    //https://www.caelum.com.br/apostila-java-orientacao-objetos/collections-framework/#16-5-ordenacao-collections-sort
     @Override
-    public int compareTo(Tabuleiro o) {
-        return this.euristica.compareTo(o.euristica);
+    public int compareTo(Tabuleiro tab) {
+    if (this.euristica < tab.euristica) {
+      return -1;
     }
-    
+
+    if (this.euristica > tab.euristica) {
+      return 1;
+    }
+    return 0;
+  }
 }
+    

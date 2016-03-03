@@ -17,7 +17,7 @@ public class Puzzle8 {
         int count = 0;
         int qtdMovimentos = 0;
 
-        Tabuleiro inicio = new Tabuleiro(2, 3, 7, 6, 5, 8, 4, 0, 1);
+        Tabuleiro inicio = new Tabuleiro(1, 2, 4, 0, 5, 6, 3, 8, 7);
         Tabuleiro fim = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
         Tabuleiro resultado = new Tabuleiro();
 
@@ -38,7 +38,7 @@ public class Puzzle8 {
                 if (!processados.contains(filho)) {
                     
                     abertos.add(filho);
-                    System.out.println(filho.toString());
+                    //System.out.println(filho.toString());
                     count++;
                 }
 
@@ -60,9 +60,7 @@ public class Puzzle8 {
 
             }
             abertos.remove(0);
-            //TODO:
-            //Verificar...
-            //Arrays.sort(abertos);
+            //Collections.sort(abertos);
         } while (!achou);
 
     }
