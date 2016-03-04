@@ -2,9 +2,10 @@ package puzzle8;
 
 /**
  * Classe com as informações do tabuleiro do jogo
+ *
  * @author Derlei
  */
-public class Tabuleiro implements Comparable<Tabuleiro>{
+public class Tabuleiro implements Comparable<Tabuleiro> {
 
     private int l1c1;
     private int l1c2;
@@ -32,10 +33,12 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
         this.l3c3 = l3c3;
     }
 
-    public Tabuleiro() {}
+    public Tabuleiro() {
+    }
 
     /**
      * Método para calcular a euristica
+     *
      * @param tabuleiro Tabuleiro
      * @return Valor da euristica
      */
@@ -252,32 +255,41 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
         return novo;
     }
 
-     private int calcH1(Tabuleiro t){
-       
+    private int calcH1(Tabuleiro t) {
+
         int cont = 0;
-        
-        if(t.l1c1 != l1c1)
-            cont ++;
-        if(t.l1c2 != l1c2)
-            cont ++;
-        if(t.l1c3 != l1c3)
-            cont ++;
-        if(t.l2c1 != l2c1)
-            cont ++;
-        if(t.l2c2 != l2c2)
-            cont ++;
-        if(t.l2c3 != l2c3)
-            cont ++;
-        if(t.l3c1 != l3c1)
-            cont ++;
-        if(t.l3c2 != l3c2)
-            cont ++;
-        if(t.l3c3 != l3c3)
-            cont ++;    
+
+        if (t.l1c1 != l1c1 && l1c1 != 0) {
+            cont++;
+        }
+        if (t.l1c2 != l1c2 && l1c2 != 0) {
+            cont++;
+        }
+        if (t.l1c3 != l1c3 && l1c3 != 0) {
+            cont++;
+        }
+        if (t.l2c1 != l2c1 && l2c1 != 0) {
+            cont++;
+        }
+        if (t.l2c2 != l2c2 && l2c2 != 0) {
+            cont++;
+        }
+        if (t.l2c3 != l2c3 && l2c3 != 0) {
+            cont++;
+        }
+        if (t.l3c1 != l3c1 && l3c1 != 0) {
+            cont++;
+        }
+        if (t.l3c2 != l3c2 && l3c2 != 0) {
+            cont++;
+        }
+        if (t.l3c3 != l3c3 && l3c3 != 0) {
+            cont++;
+        }
 
         return cont;
     }
-    
+
     /**
      * Compare two Objects type of Tabuleiro
      *
@@ -337,7 +349,8 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
                 + calcDistanciamManhattanL2c2(tabuleiro)
                 + calcDistanciamManhattanL2c3(tabuleiro)
                 + calcDistanciamManhattanL3c1(tabuleiro)
-                + calcDistanciamManhattanL3c2(tabuleiro);
+                + calcDistanciamManhattanL3c2(tabuleiro)
+                + calcDistanciamManhattanL3c3(tabuleiro);
     }
 
     private int calcDistanciamManhattanL1c1(Tabuleiro t) {
@@ -361,27 +374,26 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
     }
 
     private int calcDistanciamManhattanL1c2(Tabuleiro t) {
-        if (l1c2 == t.getL1c3() || l1c2 == t.getL2c2()) {
+        if (l1c2 == t.getL1c1() || l1c2 == t.getL1c3() || l1c2 == t.getL2c2()) {
             return 1;
         }
 
-        if (l1c2 == t.getL3c2() || l1c2 == t.getL2c1() || l1c2 == t.getL2c3()) {
+        if (l1c2 == t.getL2c1() || l1c2 == t.getL2c3() || l1c2 == t.getL3c2()) {
             return 2;
         }
 
         if (l1c2 == t.getL3c1() || l1c2 == t.getL3c3()) {
             return 3;
         }
-
         return 0;
     }
 
     private int calcDistanciamManhattanL1c3(Tabuleiro t) {
-        if (l1c3 == t.getL1c3()) {
+        if (l1c3 == t.getL1c2() || l1c3 == t.getL2c3()) {
             return 1;
         }
 
-        if (l1c3 == t.getL2c2() || l1c3 == t.getL3c3()) {
+        if (l1c3 == t.getL1c1() || l1c3 == t.getL3c3()) {
             return 2;
         }
 
@@ -394,30 +406,32 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
         }
 
         return 0;
+
     }
 
     private int calcDistanciamManhattanL2c1(Tabuleiro t) {
-        if (l2c1 == t.getL2c2() || l2c1 == t.getL3c1()) {
+        if (l2c1 == t.getL1c1() || l2c1 == t.getL2c2() || l2c1 == t.getL3c1()) {
             return 1;
         }
 
-        if (l2c1 == t.getL2c3() || l2c1 == t.getL3c2()) {
+        if (l2c1 == t.getL1c2() || l2c1 == t.getL2c3() || l2c1 == t.getL3c2()) {
             return 2;
         }
 
-        if (l2c1 == t.getL2c3()) {
+        if (l2c1 == t.getL3c3() || l2c1 == t.getL1c3()) {
             return 3;
         }
 
         return 0;
+
     }
 
     private int calcDistanciamManhattanL2c2(Tabuleiro t) {
-        if (l2c2 == t.getL2c3() || l2c2 == t.getL3c2()) {
+        if (l2c2 == t.getL1c2() || l2c2 == t.getL2c3() || l2c2 == t.getL2c1() || l2c2 == t.getL3c2()) {
             return 1;
         }
 
-        if (l2c2 == t.getL3c1() || l2c2 == t.getL3c3()) {
+        if (l2c2 == t.getL1c1() || l2c2 == t.getL1c3() || l2c2 == t.getL3c1() || l2c2 == t.getL3c3()) {
             return 2;
         }
 
@@ -425,39 +439,78 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
     }
 
     private int calcDistanciamManhattanL2c3(Tabuleiro t) {
-        if (l2c3 == t.getL3c3()) {
+        if (l2c3 == t.getL1c3() || l2c3 == t.getL2c2() || l2c3 == t.getL3c3()) {
             return 1;
         }
 
-        if (l2c3 == t.getL3c2()) {
+        if (l2c3 == t.getL1c2() || l2c3 == t.getL2c1() || l2c3 == t.getL3c2()) {
             return 2;
         }
 
-        if (l2c3 == t.getL3c1()) {
+        if (l2c3 == t.getL1c1() || l2c3 == t.getL3c1()) {
             return 3;
         }
 
         return 0;
+
     }
 
     private int calcDistanciamManhattanL3c1(Tabuleiro t) {
-        if (l3c1 == t.getL3c2()) {
+        if (l3c1 == t.getL2c1() || l3c1 == t.getL3c2()) {
             return 1;
         }
 
-        if (l3c1 == t.getL3c3()) {
+        if (l3c1 == t.getL1c1() || l3c1 == t.getL2c2() || l3c1 == t.getL3c3()) {
             return 2;
+        }
+
+        if (l3c1 == t.getL1c2() || l3c1 == t.getL2c3()) {
+            return 3;
+        }
+
+        if (l3c1 == t.getL1c3()) {
+            return 4;
+        }
+
+        return 0;
+
+    }
+
+    private int calcDistanciamManhattanL3c2(Tabuleiro t) {
+        if (l3c2 == t.getL1c1() || l3c2 == t.getL1c3()) {
+            return 3;
+        }
+
+        if (l3c2 == t.getL1c2() || l3c2 == t.getL2c1() || l3c2 == t.getL2c3()) {
+            return 2;
+        }
+
+        if (l3c2 == t.getL2c2() || l3c2 == t.getL3c1() || l3c2 == t.getL3c2()) {
+            return 1;
         }
 
         return 0;
     }
 
-    private int calcDistanciamManhattanL3c2(Tabuleiro t) {
-        if (l3c2 == t.l3c3) {
+    private int calcDistanciamManhattanL3c3(Tabuleiro t) {
+        if (l3c3 == t.getL3c2() || l3c3 == t.getL2c3()) {
             return 1;
         }
 
+        if (l3c3 == t.getL3c1() || l3c3 == t.getL2c2() || l3c3 == t.getL1c3()) {
+            return 2;
+        }
+
+        if (l3c3 == t.getL2c1() || l3c3 == t.getL1c2()) {
+            return 3;
+        }
+
+        if (l3c3 == t.getL1c1()) {
+            return 4;
+        }
+
         return 0;
+
     }
 
     public int getL1c1() {
@@ -544,20 +597,16 @@ public class Tabuleiro implements Comparable<Tabuleiro>{
         return euristica;
     }
 
-    public void setEuristica(int euristica) {
-        this.euristica = euristica;
-    }
     //https://www.caelum.com.br/apostila-java-orientacao-objetos/collections-framework/#16-5-ordenacao-collections-sort
     @Override
-    public int compareTo(Tabuleiro tab) {
-    if (this.euristica < tab.euristica) {
-      return -1;
-    }
+    public int compareTo(Tabuleiro t) {
+        if (this.euristica < t.euristica) {
+            return -1;
+        }
 
-    if (this.euristica > tab.euristica) {
-      return 1;
+        if (this.euristica > t.euristica) {
+            return 1;
+        }
+        return 0;
     }
-    return 0;
-  }
 }
-    

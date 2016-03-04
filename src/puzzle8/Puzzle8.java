@@ -12,12 +12,12 @@ public class Puzzle8 {
 
     public static void main(String[] args) {
         ListaTabuleiros processados = new ListaTabuleiros();
-        ListaTabuleiros abertos = new ListaTabuleiros();
-        boolean achou = false;
+        ListaTabuleiros abertos     = new ListaTabuleiros();
+        boolean achou               = false;
         int count = 0;
         int qtdMovimentos = 0;
 
-        Tabuleiro inicio = new Tabuleiro(1, 2, 4, 0, 5, 6, 3, 8, 7);
+        Tabuleiro inicio = new Tabuleiro(7, 8, 5, 3, 1, 4, 0, 6, 2);
         Tabuleiro fim = new Tabuleiro(1, 2, 3, 4, 5, 6, 7, 8, 0);
         Tabuleiro resultado = new Tabuleiro();
 
@@ -25,7 +25,6 @@ public class Puzzle8 {
 
         if (inicio.equals(fim)) {
             System.out.println("Final igual ao inicio \n" + inicio.toString());
-            System.out.println(String.format("Total de Verificacoes: %s", count));
             achou = true;
         }
 
@@ -36,12 +35,14 @@ public class Puzzle8 {
 
             for (Tabuleiro filho : filhos) {
                 if (!processados.contains(filho)) {
-                    
+                    filho.calculaEuristica(fim);
                     abertos.add(filho);
                     //System.out.println(filho.toString());
                     count++;
                 }
-
+                
+                Collections.sort(abertos);
+                
                 if (fim.equals(filho)) {
                     achou = true;
                     System.out.println("Fim encontrado");
@@ -57,10 +58,8 @@ public class Puzzle8 {
                     System.out.println("Movimentos: " + qtdMovimentos);
                     break;
                 }
-
             }
             abertos.remove(0);
-            //Collections.sort(abertos);
         } while (!achou);
 
     }
