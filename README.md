@@ -1,2 +1,2 @@
 # blue
-App for resolved the game Puzzle8
+App for resolve the game Puzzle8
